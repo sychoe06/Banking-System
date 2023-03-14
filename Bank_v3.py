@@ -82,10 +82,11 @@ def transfer():
 user_list = []
 
 user_choice = ""
-print("Welcome")
+print("Welcome!")
 
 generate_users()
 while user_choice != "Q":
+    print()
     print("What function would you like to run?")
     print("Type 1 to find a user")
     print("Type 2 to print overdraft information")
@@ -93,7 +94,7 @@ while user_choice != "Q":
     print("Type 4 to print bank details")
     print("Type 5 to transfer money")
     print("Type Q to quit")
-    user_choice = input("Enter choice: ")
+    user_choice = input("Enter choice: ").upper()
     print()
 
     if user_choice == "1":
@@ -106,4 +107,4 @@ while user_choice != "Q":
         bank_details()
     elif user_choice == "5":
         transfer()
-    print()
+
