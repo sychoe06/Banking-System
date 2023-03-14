@@ -1,11 +1,9 @@
-"""Banking system - version 1
-Question 1: Edited the displayInfo() function to print out users in neat format
+"""Banking system - Template version
 """
 
 
 class User:
-    def __init__(self, first_name, last_name, gender, street_address, city,
-                 email, cc_number, cc_type, balance, account_no):
+    def __init__(self, first_name, last_name, gender, street_address, city, email, cc_number, cc_type, balance, account_no):
         self.first_name = first_name
         self.last_name = last_name
         self.gender = gender
@@ -19,16 +17,8 @@ class User:
         userList.append(self)
 
     def displayInfo(self):
-        print("First Name:", self.first_name)
-        print("Last Name:", self.last_name)
-        print("Gender:", self.gender)
-        print("Street address:", self.street_address)
-        print("City:", self.city)
-        print("Email:", self.email)
-        print("CC Number:", self.cc_number)
-        print("CC Type:", self.cc_type)
-        print("Balance:", self.balance)
-        print("Account Number:", self.account_no)
+        # TO COMPLETE
+        True
 
 
 def generateUsers():
@@ -36,11 +26,12 @@ def generateUsers():
     with open('bankUsers.csv', newline='') as csvfile:
         filereader = csv.reader(csvfile, delimiter=',', quotechar="'")
         for line in filereader:
-            User(line[0], line[1], line[2], line[3], line[4], line[5], line[6],
-                 line[7], float(line[8][1:]), line[9])
+            User(line[0], line[1], line[2], line[3], line[4], line[5], line[6], line[7], float(line[8][1:]), line[9])
 
 
 def findUser():
+    # TO COMPLETE
+
     True
 
 
@@ -70,11 +61,11 @@ def transfer():
 
 # Main Routine
 userList = []
+generateUsers()
 
 userChoice = ""
 print("Welcome")
 
-generateUsers()
 while userChoice != "Q":
     print("What function would you like to run?")
     print("Type 1 to find a user")

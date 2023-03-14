@@ -1,5 +1,5 @@
-"""Banking system - version 2
-Edited the displayInfo() function to print out users in neat format
+"""Banking system - version 3
+Question 2: Finding a user and printing their details
 """
 
 
@@ -16,9 +16,10 @@ class User:
         self.cc_type = cc_type
         self.balance = balance
         self.account_no = account_no
-        userList.append(self)
+        user_list.append(self)
 
-    def displayInfo(self):
+    def display_info(self):
+        print("-" * 30)
         print("First Name:", self.first_name)
         print("Last Name:", self.last_name)
         print("Gender:", self.gender)
@@ -29,19 +30,28 @@ class User:
         print("CC Type:", self.cc_type)
         print("Balance:", self.balance)
         print("Account Number:", self.account_no)
+        print("-" * 30)
 
 
-def generateUsers():
+def generate_users():
     import csv
     with open('bankUsers.csv', newline='') as csvfile:
         filereader = csv.reader(csvfile, delimiter=',', quotechar="'")
         for line in filereader:
             User(line[0], line[1], line[2], line[3], line[4], line[5], line[6],
-                 line[7], float(line[8][1:]), line[9])
+                 line[7], float(line[8]), line[9])
 
 
-def findUser():
-    True
+def find_user():
+    not_found = "True"
+    find_first = input("Enter the first name of the user: ").title()
+    find_last = input("Enter the last name of the user: ").title()
+    for user in user_list:
+        if user.first_name == find_first and user.last_name == find_last:
+            not_found = "False"
+            user.display_info()
+    if not_found == "True":
+        print("ERROR! User does not exist")
 
 
 def overdrafts():
@@ -50,13 +60,13 @@ def overdrafts():
     True
 
 
-def missingEmails():
+def missing_emails():
     # TO COMPLETE
 
     True
 
 
-def bankDetails():
+def bank_details():
     # TO COMPLETE
 
     True
@@ -69,13 +79,14 @@ def transfer():
 
 
 # Main Routine
-userList = []
+user_list = []
 
-userChoice = ""
-print("Welcome")
+user_choice = ""
+print("Welcome!")
 
-generateUsers()
-while userChoice != "Q":
+generate_users()
+while user_choice != "Q":
+    print()
     print("What function would you like to run?")
     print("Type 1 to find a user")
     print("Type 2 to print overdraft information")
@@ -83,17 +94,17 @@ while userChoice != "Q":
     print("Type 4 to print bank details")
     print("Type 5 to transfer money")
     print("Type Q to quit")
-    userChoice = input("Enter choice: ")
+    user_choice = input("Enter choice: ").upper()
     print()
 
-    if userChoice == "1":
-        findUser()
-    elif userChoice == "2":
+    if user_choice == "1":
+        find_user()
+    elif user_choice == "2":
         overdrafts()
-    elif userChoice == "3":
-        missingEmails()
-    elif userChoice == "4":
-        bankDetails()
-    elif userChoice == "5":
+    elif user_choice == "3":
+        missing_emails()
+    elif user_choice == "4":
+        bank_details()
+    elif user_choice == "5":
         transfer()
-    print()
+
