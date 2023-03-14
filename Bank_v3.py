@@ -1,5 +1,5 @@
 """Banking system - version 3
-Question 2: Finding a user and printing their details
+Question 3: Overdraft users (when the account balance is negative)
 """
 
 
@@ -19,7 +19,7 @@ class User:
         user_list.append(self)
 
     def display_info(self):
-        print("-" * 30)
+        print(border)
         print("First Name:", self.first_name)
         print("Last Name:", self.last_name)
         print("Gender:", self.gender)
@@ -30,7 +30,7 @@ class User:
         print("CC Type:", self.cc_type)
         print("Balance:", self.balance)
         print("Account Number:", self.account_no)
-        print("-" * 30)
+        print(border)
 
 
 def generate_users():
@@ -55,12 +55,22 @@ def find_user():
 
 
 def overdrafts():
-    total_overdraft_users = 0
-    total_amount = 0
+    overdraft_name_list = []
+    total_users = 0  # number of overdraft users
+    total_amount = 0  # amount of overdraft by these users
     for user in user_list:
         if user.balance < 0:
-            print("overdraft")
-            user.display_info()
+            overdraft_user = user.first_name + " " + user.last_name
+            overdraft_name_list.append(overdraft_user)
+            total_users += 1
+            total_amount += user.balance
+    print("All users with overdraft accounts:")
+    for name in overdraft_name_list:
+        print(name)
+    print(border)
+    print(f"Total number of overdraft users: {total_users}")
+    print(f"Total amount of overdraft: ${total_amount:.2f}")
+    print(border)
 
 
 def missing_emails():
@@ -83,6 +93,7 @@ def transfer():
 
 # Main Routine
 user_list = []
+border = "-" * 30
 
 user_choice = ""
 print("Welcome!")
