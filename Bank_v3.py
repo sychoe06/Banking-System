@@ -60,13 +60,13 @@ def overdrafts():
     True
 
 
-def missingEmails():
+def missing_emails():
     # TO COMPLETE
 
     True
 
 
-def bankDetails():
+def bank_details():
     # TO COMPLETE
 
     True
@@ -81,11 +81,11 @@ def transfer():
 # Main Routine
 user_list = []
 
-userChoice = ""
+user_choice = ""
 print("Welcome")
 
 generate_users()
-while userChoice != "Q":
+while user_choice != "Q":
     print("What function would you like to run?")
     print("Type 1 to find a user")
     print("Type 2 to print overdraft information")
@@ -93,17 +93,17 @@ while userChoice != "Q":
     print("Type 4 to print bank details")
     print("Type 5 to transfer money")
     print("Type Q to quit")
-    userChoice = input("Enter choice: ")
+    user_choice = input("Enter choice: ")
     print()
 
-    if userChoice == "1":
+    if user_choice == "1":
         find_user()
-    elif userChoice == "2":
+    elif user_choice == "2":
         overdrafts()
-    elif userChoice == "3":
-        missingEmails()
-    elif userChoice == "4":
-        bankDetails()
-    elif userChoice == "5":
+    elif user_choice == "3":
+        missing_emails()
+    elif user_choice == "4":
+        bank_details()
+    elif user_choice == "5":
         transfer()
     print()
