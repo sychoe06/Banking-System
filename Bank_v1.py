@@ -1,3 +1,8 @@
+"""Banking system - version 1
+Template
+"""
+
+
 class User:
     def __init__(self, first_name, last_name, gender, street_address, city, email, cc_number, cc_type, balance, account_no):
         self.first_name = first_name
@@ -14,8 +19,8 @@ class User:
 
     def displayInfo(self):
         # TO COMPLETE
-
         True
+
 
 def generateUsers():
     import csv
@@ -24,31 +29,38 @@ def generateUsers():
         for line in filereader:
             User(line[0], line[1], line[2], line[3], line[4], line[5], line[6], line[7], float(line[8][1:]), line[9])
 
+
 def findUser():
     # TO COMPLETE
 
     True
+
 
 def overdrafts():
     # TO COMPLETE
 
     True
 
+
 def missingEmails():
     # TO COMPLETE
 
     True
+
 
 def bankDetails():
     # TO COMPLETE
 
     True
 
+
 def transfer():
     # TO COMPLETE
 
     True
 
+
+# Main Routine
 userList = []
 generateUsers()
 
