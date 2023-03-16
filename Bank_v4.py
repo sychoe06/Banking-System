@@ -1,5 +1,5 @@
 """Banking system - version 4
-Question 3: Overdraft users (when the account balance is negative)
+Question 4: Users with missing emails
 """
 
 
@@ -74,12 +74,16 @@ def overdrafts():
 
 
 def missing_emails():
-    names_list = []
     total_users = 0  # number of users without emails on their account
-    for user in user_list:
-        if user.email == "":
-            user.display_info()
     print("All users with missing emails:")
+    for user in user_list:
+        name = user.first_name + " " + user.last_name
+        if user.email == "":
+            print(name)
+            total_users += 1
+    print(border)
+    print(f"Total number of users: {total_users}")
+    print(border)
 
 
 def bank_details():
